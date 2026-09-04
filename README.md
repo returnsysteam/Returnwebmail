@@ -1,10 +1,10 @@
-# Impulsionante · Webmail
+# Return System · Webmail
 
 Cliente de webmail de página única para a caixa de e-mail entregue com as contas
-da Impulsionante. Serve para ler as mensagens recebidas — principalmente códigos
+da Return System. Serve para ler as mensagens recebidas — principalmente códigos
 de verificação — sem precisar de servidor próprio.
 
-**Acesso:** https://peffmb.github.io/webimpulsionantemail
+**Acesso:** https://peffmb.github.io/webreturnsystemmail
 
 ## Como funciona
 

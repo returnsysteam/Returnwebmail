@@ -5,21 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <meta name="color-scheme" content="dark light">
-<meta name="theme-color" content="#0b0b13">
-<meta name="description" content="Webmail da Impulsionante — acesse a caixa de e-mail entregue com a sua conta e leia os códigos de verificação.">
-<title>Impulsionante · Webmail</title>
+<meta name="theme-color" content="#6d18ff">
+<meta name="description" content="Return System Webmail — acesse sua caixa de entrada e leia suas mensagens.">
+<title>Return System · Webmail</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%235301FE'/%3E%3Cstop offset='.6' stop-color='%23B14BFF'/%3E%3Cstop offset='1' stop-color='%23FF73FA'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Cpath d='M16 6l3.2 6.6L26 16l-6.8 3.4L16 26l-3.2-6.6L6 16l6.8-3.4z' fill='%23fff'/%3E%3C/svg%3E">
 <style>
   /* ============================ TOKENS ============================ */
   :root{
-    --bg:#0b0b13; --bg-2:#0f0f1a;
-    --panel:#15151f; --panel-2:#1c1c2b; --panel-3:#242438;
-    --border:#2a2a3f; --border-2:#343450;
-    --text:#ecebf5; --text-2:#b4b3c9; --muted:#807f98;
-    --primary:#7a3cff; --primary-strong:#5301FE; --primary-soft:#b14bff;
-    --accent:#ff73fa; --ok:#37d399; --warn:#ffc061; --danger:#ff5c7a;
+    --bg:#090610; --bg-2:#10091b;
+    --panel:#130d1c; --panel-2:#1b1128; --panel-3:#25163a;
+    --border:#3a2452; --border-2:#51326e;
+    --text:#f3edfa; --text-2:#c4b5d2; --muted:#8f7ba1;
+    --primary:#8b45ff; --primary-strong:#6d18ff; --primary-soft:#bd70ff;
+    --accent:#d05cff; --ok:#37d399; --warn:#ffc061; --danger:#ff5c7a;
     --ring:rgba(122,60,255,.40);
-    --grad:linear-gradient(135deg,#5301FE,#b14bff 58%,#ff73fa);
+    --grad:linear-gradient(135deg,#6d18ff,#9b42ff 55%,#d05cff);
     --radius:14px; --radius-sm:10px;
     --shadow:0 24px 60px -12px rgba(0,0,0,.55);
     --shadow-sm:0 6px 20px -6px rgba(0,0,0,.4);
@@ -53,7 +53,8 @@
     -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     background-image:
       radial-gradient(1100px 620px at 88% -12%, color-mix(in srgb, var(--primary-strong) 22%, transparent), transparent 60%),
-      radial-gradient(860px 520px at -12% 112%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 55%);
+      radial-gradient(860px 520px at -12% 112%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 55%),
+      radial-gradient(700px 420px at 50% 40%, color-mix(in srgb, var(--primary) 8%, transparent), transparent 65%);
     background-attachment:fixed;
   }
   h1,h2,h3,p{margin:0}
@@ -93,6 +94,13 @@
   .iconbtn:hover{color:var(--text);border-color:var(--primary);transform:translateY(-1px)}
   .iconbtn:active{transform:none}
   .iconbtn svg{width:16px;height:16px;flex:none}
+
+
+  .logo img{width:100%;height:100%;display:block;border-radius:11px;object-fit:cover}
+  .login-banner{width:100%;aspect-ratio:16/5;object-fit:cover;border-radius:12px;border:1px solid var(--border-2);margin-bottom:20px;box-shadow:0 16px 40px -18px rgba(109,24,255,.75)}
+  .card{border-color:#44275f;background:linear-gradient(180deg,color-mix(in srgb,var(--panel) 94%,#6d18ff 6%),var(--panel));}
+  .card::before{content:"";display:block;height:3px;border-radius:999px;background:var(--grad);margin:-36px -36px 24px}
+  @media (max-width:520px){.card::before{margin:-24px -24px 20px}.login-banner{aspect-ratio:16/6}}
 
   /* ============================ LOGIN ============================ */
   .login-shell{flex:1;display:grid;place-items:center;padding:16px 0 40px}
@@ -237,10 +245,10 @@
   <header class="topbar">
     <div class="topbar-in">
       <div class="logo" aria-hidden="true">
-        <svg viewBox="0 0 32 32"><path d="M16 5l3.4 7L27 15.4l-7.6 3.4L16 27l-3.4-8.2L5 15.4 12.6 12z" fill="#fff"/></svg>
+        <img src="assets/return-system-logo.gif" alt="" loading="eager">
       </div>
       <div class="brand">
-        <b>Impulsionante</b>
+        <b>Return System</b>
         <small>Webmail · caixa de entrada</small>
       </div>
       <div class="grow"></div>
@@ -259,9 +267,10 @@
     <!-- ==================== LOGIN ==================== -->
     <section class="login-shell" id="loginShell">
       <div class="card">
-        <div class="kicker">Acesso à caixa</div>
-        <h1 id="loginTitle">Entrar na sua caixa</h1>
-        <p class="sub" id="loginSub">Use o <b>e-mail</b> e a <b>senha</b> entregues com a sua conta para ler as mensagens recebidas — códigos de verificação, confirmações, etc.</p>
+        <img class="login-banner" src="assets/return-system-banner.gif" alt="Return System" loading="eager">
+        <div class="kicker">RETURN SYSTEM · WEBMAIL</div>
+        <h1 id="loginTitle">Entrar no Return System</h1>
+        <p class="sub" id="loginSub">Use seu <b>e-mail</b> e sua <b>senha</b> para acessar a caixa de entrada e ler as mensagens recebidas.</p>
 
         <form id="loginForm" autocomplete="on">
           <label for="email">E-mail</label>
@@ -350,8 +359,8 @@
   </div>
 
   <footer>
-    Impulsionante · Webmail — acesso à caixa de e-mail da sua conta.<br>
-    © <span id="year"></span> Impulsionante. Uso pessoal e intransferível.
+    Return System · Webmail — acesso à caixa de e-mail da sua conta.<br>
+    © <span id="year"></span> Return System. Uso pessoal e intransferível.
   </footer>
 </div>
 
@@ -364,7 +373,7 @@
   /* ============================ CONFIG ============================ */
   var CFG = {
     API: "https://api.duckmail.sbs",
-    STORE_KEY: "impulsionante.webmail.v2",
+    STORE_KEY: "returnsystem.webmail.v2",
     PAGE_SIZE: 30,
     AUTO_MS: 15000,
     TOKEN_SOFT_TTL: 9 * 60 * 1000   // re-login silencioso após ~9 min se houver credencial salva
@@ -845,7 +854,7 @@
         new Notification(fresh.length === 1 ? (m.subject || "Nova mensagem") : fresh.length + " novas mensagens", {
           body: fresh.length === 1 ? ("De " + fromLabel(m) + (m._codes[0] ? " · código " + m._codes[0] : "")) : "",
           icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235301FE'/%3E%3Cpath d='M16 6l3.2 6.6L26 16l-6.8 3.4L16 26l-3.2-6.6L6 16l6.8-3.4z' fill='%23fff'/%3E%3C/svg%3E",
-          tag: "impulsionante-mail"
+          tag: "returnsystem-mail"
         });
       }catch(e){}
     }
@@ -870,7 +879,7 @@
     logoutBtn.hidden = false;
     acctPill.hidden = false;
     pillAddr.textContent = S.address;
-    document.title = "Impulsionante · " + S.address;
+    document.title = "Return System · " + S.address;
 
     if(opts.banner){ inboxBanner.hidden = false; inboxBanner.innerHTML = opts.banner; }
     else inboxBanner.hidden = true;
@@ -890,7 +899,7 @@
     loginShell.classList.remove("hidden");
     readerContent.hidden = true; readerEmpty.hidden = false; reader.classList.remove("open");
     $("password").value = ""; searchInput.value = "";
-    document.title = "Impulsionante · Webmail";
+    document.title = "Return System · Webmail";
     clearLoginMsg();
   }
 
