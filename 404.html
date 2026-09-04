@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Impulsionante · Webmail</title>
+<script>
+  // O webmail é página única — qualquer rota cai aqui e volta pra raiz do site.
+  (function () {
+    var base = location.pathname.replace(/\/[^/]*$/, "/");
+    location.replace(base);
+  })();
+</script>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:grid;place-items:center;background:#0b0b13;color:#b4b3c9;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  a{color:#b14bff}
+</style>
+</head>
+<body>
+  <p>Redirecionando… <a href="./">abrir o webmail</a></p>
+</body>
+</html>
